@@ -345,6 +345,10 @@
             el: ".swiper-pagination",
             clickable: true,
         },
+        navigation: {
+            nextEl: ".tp-price-next",
+            prevEl: ".tp-price-prev",
+        },
         breakpoints: {
             240: {
                 slidesPerView: 1,

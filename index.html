@@ -418,346 +418,402 @@
                     </div>
                 </div>
             </section>
-            <!-- Testimonial area end -->
+                  <!-- Price area start -->
+            <section class="tp-price-area pt-120 pb-120" id="pricing-section">
+                <style>
+                    /* Premium Gold & Black Styling */
+                    #pricing-section {
+                        background: #000000;
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    .gx-price-card {
+                        background: #0a0a0a;
+                        border: 1px solid #222;
+                        border-radius: 30px;
+                        padding: 50px 40px;
+                        height: 100%;
+                        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                    }
+                    .gx-price-card:hover {
+                        transform: translateY(-15px);
+                        border-color: #D4AF37;
+                        box-shadow: 0 20px 50px rgba(212, 175, 55, 0.15);
+                    }
+                    .gx-price-card.popular {
+                        border: 2px solid #D4AF37;
+                        background: linear-gradient(180deg, #0a0a0a 0%, #151105 100%);
+                    }
+                    .gx-popular-badge {
+                        position: absolute;
+                        top: -15px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: linear-gradient(90deg, #D4AF37, #F2D16B);
+                        color: #000;
+                        padding: 6px 20px;
+                        border-radius: 20px;
+                        font-size: 13px;
+                        font-weight: 800;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+                    }
+                    .gx-plan-emoji {
+                        font-size: 48px;
+                        display: block;
+                        margin-bottom: 25px;
+                        background: linear-gradient(135deg, #FFF 30%, #D4AF37 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.3));
+                    }
+                    .gx-plan-name {
+                        font-size: 28px;
+                        font-weight: 800;
+                        color: #fff;
+                        margin-bottom: 12px;
+                        letter-spacing: -0.5px;
+                    }
+                    .gx-plan-desc {
+                        font-size: 15px;
+                        color: #888;
+                        margin-bottom: 35px;
+                        line-height: 1.6;
+                        min-height: 48px;
+                    }
+                    .gx-price-value {
+                        margin-bottom: 40px;
+                        padding-bottom: 35px;
+                        border-bottom: 1px solid #1a1a1a;
+                        display: flex;
+                        align-items: baseline;
+                        flex-wrap: wrap;
+                        gap: 4px;
+                    }
+                    .gx-currency {
+                        font-size: 24px;
+                        color: #D4AF37;
+                        font-weight: 700;
+                    }
+                    .gx-amount {
+                        font-size: 46px;
+                        font-weight: 900;
+                        color: #fff;
+                        line-height: 1;
+                        letter-spacing: -1px;
+                    }
+                    .gx-duration {
+                        color: #555;
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+                    .gx-price-features ul {
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                        margin-bottom: 45px;
+                        flex-grow: 1;
+                    }
+                    .gx-price-features li {
+                        color: #d0d0d0;
+                        font-size: 15px;
+                        margin-bottom: 20px;
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 15px;
+                        line-height: 1.4;
+                    }
+                    .gx-price-features i {
+                        color: #D4AF37;
+                        margin-top: 3px;
+                        font-size: 16px;
+                    }
+                    .gx-btn-premium {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        padding: 18px;
+                        border-radius: 15px;
+                        background: transparent;
+                        border: 1px solid #D4AF37;
+                        color: #D4AF37;
+                        font-weight: 700;
+                        font-size: 16px;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        transition: all 0.4s;
+                    }
+                    .gx-btn-premium:hover {
+                        background: linear-gradient(90deg, #D4AF37, #F2D16B);
+                        color: #000 !important;
+                        border-color: transparent;
+                        box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+                        transform: scale(1.02);
+                    }
+                    .gx-btn-premium.highlighted {
+                        background: linear-gradient(90deg, #D4AF37, #F2D16B);
+                        color: #000;
+                        border: none;
+                    }
+                    .gx-btn-premium.highlighted:hover {
+                        background: #fff;
+                        color: #000;
+                        box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+                    }
 
+                    /* Swiper Navigation Custom Styling */
+                    .tp-price-navigation {
+                        display: flex;
+                        justify-content: center;
+                        gap: 20px;
+                        margin-top: 50px;
+                    }
+                    .tp-price-prev, .tp-price-next {
+                        width: 60px;
+                        height: 60px;
+                        border: 1.5px solid #222;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #fff;
+                        cursor: pointer;
+                        transition: all 0.3s;
+                        background: #0a0a0a;
+                    }
+                    .tp-price-prev:hover, .tp-price-next:hover {
+                        border-color: #D4AF37;
+                        color: #D4AF37;
+                        background: #151105;
+                        transform: scale(1.1);
+                    }
 
-            <!-- Price area start -->
-            <section class="tp-price__area tp-price5-area pb-130">
-                <div class="tp-price-outer pt-120">
-                    <div class="container">
-                        <div class="tp-price-titlebox text-center">
-                            <h2 class="sec-title-2 elastic-anim">Flexible Plan</h2>
-                            <p>Growexa helps businesses scale faster, generate quality leads, and maximize revenue with 360° digital solutions.
-                            </p>
-                        </div>
-
-                        <div class="tp-price-toggle-wrapper">
-                            <div class="toggle-btn-wrap">
-                                <span>Monthly</span>
-                                <div class="tp-price-toggle-btn"></div>
-                                <span>Yearly <small style="color: #22c55e; font-size: 12px;">(Save 10%)</small></span>
+                    /* Addons section style */
+                    .gx-addons-card {
+                        background: linear-gradient(180deg, #050505 0%, #000 100%);
+                        border: 1px solid #111;
+                        border-top: 1px solid #D4AF37;
+                        border-radius: 40px;
+                        padding: 70px 60px;
+                        margin-top: 100px;
+                    }
+                    .gx-addons-title {
+                        font-size: 38px;
+                        font-weight: 800;
+                        margin-bottom: 15px;
+                        background: linear-gradient(90deg, #FFF 0%, #D4AF37 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                    .gx-addons-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                        gap: 25px;
+                    }
+                    .gx-addon-item {
+                        background: #080808;
+                        padding: 30px;
+                        border-radius: 20px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 12px;
+                        border: 1px solid #151515;
+                        transition: all 0.4s;
+                    }
+                    .gx-addon-item:hover {
+                        border-color: #D4AF37;
+                        background: #110e06;
+                        transform: translateY(-8px);
+                        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05);
+                    }
+                    .gx-addon-name {
+                        color: #fff;
+                        font-weight: 700;
+                        font-size: 18px;
+                        letter-spacing: -0.2px;
+                    }
+                    .gx-addon-price {
+                        color: #D4AF37;
+                        font-weight: 800;
+                        font-size: 20px;
+                    }
+                    
+                    @media (max-width: 767px) {
+                        .gx-addons-card { padding: 50px 25px; }
+                        .gx-price-card { padding: 45px 30px; }
+                        .gx-plan-name { font-size: 24px; }
+                    }
+                </style>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-8">
+                            <div class="tp-price-titlebox text-center mb-80">
+                                <h2 class="sec-title-2 elastic-anim" style="color: #fff; font-size: 55px; font-weight: 900; letter-spacing: -1px;">Premium Growth Plans</h2>
+                                <p style="color: #666; font-size: 19px; max-width: 600px; margin: 0 auto;">Select the perfect tier to accelerate your business with our gold-standard marketing solutions.</p>
                             </div>
                         </div>
-
-                        <div class="tp-price-wrapper">
-                            <div class="tp-price-table">
-                                <div class="tp-price-list monthly active">
-                                    <div class="swiper tp-price-slider">
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide">
-                                                <div class="tp-price-plan">
-                                        <div class="tp-price-header">
-                                            <p class="plan-name">Starter</p>
+                    </div>
+                    
+                    <div class="tp-price-slider-outer" style="position: relative; padding: 0 20px;">
+                        <div class="swiper tp-price-slider">
+                            <div class="swiper-wrapper">
+                                <!-- Starter Plan -->
+                                <div class="swiper-slide">
+                                    <div class="gx-price-card">
+                                        <div class="gx-price-header">
+                                            <h3 class="gx-plan-name">Starter Plan</h3>
+                                            <p class="gx-plan-desc">Perfect for startups looking to establish a dominant online presence.</p>
                                         </div>
-                                        <p class="tp-price-desc">Perfect for startups and small businesses looking to establish their online presence.</p>
-                                        <div class="price-btn-wrap">
-                                            <div class="tp-price-amount"><span>₹7,999</span></div>
-                                            <a href="#" class="actova-btn-light">
-                                                Join Starter Plan
-                                                <svg width="9" height="13" viewBox="0 0 9 13"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M7.18965 4.93104C6.32449 4.93104 5.62069 5.63484 5.62069 6.5C5.62069 7.36516 6.32449 8.06896 7.18965 8.06896C8.05481 8.06896 8.75861 7.36516 8.75861 6.5C8.75861 5.63484 8.05481 4.93104 7.18965 4.93104ZM4.5 5.60346C5.36516 5.60346 6.06896 4.89965 6.06896 4.03449C6.06896 3.16933 5.36516 2.46553 4.5 2.46553C3.63484 2.46553 2.93103 3.16933 2.93103 4.03449C2.93103 4.89965 3.63484 5.60346 4.5 5.60346ZM1.81034 3.13793C2.6755 3.13793 3.3793 2.43412 3.3793 1.56896C3.3793 0.703803 2.6755 0 1.81034 0C0.945181 0 0.241379 0.703803 0.241379 1.56896C0.241379 2.43412 0.945181 3.13793 1.81034 3.13793ZM4.5 7.39654C3.63484 7.39654 2.93103 8.10035 2.93103 8.96551C2.93103 9.83067 3.63484 10.5345 4.5 10.5345C5.36516 10.5345 6.06896 9.83067 6.06896 8.96551C6.06896 8.10035 5.36516 7.39654 4.5 7.39654ZM1.81034 9.86207C0.945181 9.86207 0.241379 10.5659 0.241379 11.431C0.241379 12.2962 0.945181 13 1.81034 13C2.6755 13 3.3793 12.2962 3.3793 11.431C3.3793 10.5659 2.6755 9.86207 1.81034 9.86207Z">
-                                                    </path>
-                                                </svg>
-                                            </a>
+                                        <div class="gx-price-value">
+                                            <span class="gx-currency">₹</span>
+                                            <span class="gx-amount">7,999</span>
+                                            <span class="gx-duration">/ month</span>
                                         </div>
-                                        <div class="tp-price-feature">
+                                        <div class="gx-price-features">
                                             <ul>
-                                                <li>
-                                                    <span class="icon">
-                                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <mask id="mask0_2478_647" style="mask-type:alpha"
-                                                                maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                height="12">
-                                                                <rect width="12" height="12" fill="#D9D9D9" />
-                                                            </mask>
-                                                            <g mask="url(#mask0_2478_657)">
-                                                                <path
-                                                                    d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                    fill="#020202" />
-                                                            </g>
-                                                        </svg>
-                                                    </span> SEO Audit & Keyword Research
-                                                </li>
-                                                <li>
-                                                    <span class="icon">
-                                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <mask id="mask0_2478_087" style="mask-type:alpha"
-                                                                maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                height="12">
-                                                                <rect width="12" height="12" fill="#D9D9D9" />
-                                                            </mask>
-                                                            <g mask="url(#mask0_2478_887)">
-                                                                <path
-                                                                    d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                    fill="#020202" />
-                                                            </g>
-                                                        </svg>
-                                                    </span> Basic Social Media Management
-                                                </li>
-                                                <li>
-                                                    <span class="icon">
-                                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <mask id="mask0_2475_687" style="mask-type:alpha"
-                                                                maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                height="12">
-                                                                <rect width="12" height="12" fill="#D9D9D9" />
-                                                            </mask>
-                                                            <g mask="url(#mask0_2438_687)">
-                                                                <path
-                                                                    d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                    fill="#020202" />
-                                                            </g>
-                                                        </svg>
-                                                    </span> 2 Paid Ad Campaigns
-                                                </li>
-                                                <li>
-                                                    <span class="icon">
-                                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <mask id="mask0_2478_689" style="mask-type:alpha"
-                                                                maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                height="12">
-                                                                <rect width="12" height="12" fill="#D9D9D9" />
-                                                            </mask>
-                                                            <g mask="url(#mask0_2478_688)">
-                                                                <path
-                                                                    d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                    fill="#020202" />
-                                                            </g>
-                                                        </svg>
-                                                    </span> Monthly Performance Report
-                                                </li>
+                                                <li>SEO Audit & Keyword Research</li>
+                                                <li>Social Media (8 Posts/Month)</li>
+                                                <li>1 Paid Ad Campaign</li>
+                                                <li>Basic Lead Gen Setup</li>
+                                                <li>Performance Report</li>
                                             </ul>
                                         </div>
+                                        <div class="gx-price-footer">
+                                            <a href="#" class="gx-btn-premium">Activate Plan</a>
+                                        </div>
                                     </div>
-                                    <div class="swiper-slide">
-                                    <div class="tp-price-plan popular">
-                                        <div class="ribbon">
-                                            <p>
-                                                <svg width="14" height="18" viewBox="0 0 14 18"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M1.2928 10.3513H5.6614L1.96636 17.0046C1.76098 17.3745 2.24428 17.739 2.54344 17.4399L12.9644 7.02326C13.194 6.79358 13.032 6.401 12.7073 6.4001L7.64374 6.3866L11.2247 1.01774C11.3863 0.775095 11.2126 0.450195 10.921 0.450195H5.86606C5.72764 0.450195 5.60128 0.528495 5.53954 0.652335L0.966097 9.82334C0.938344 9.87899 0.925271 9.94082 0.928117 10.0029C0.930963 10.0651 0.949635 10.1254 0.982362 10.1783C1.01509 10.2312 1.06078 10.2749 1.11511 10.3051C1.16944 10.3354 1.23061 10.3513 1.2928 10.3513Z" />
-                                                </svg> Most Popular
-                                            </p>
-                                        </div>
-                                        <div class="tp-price-header">
-                                            <p class="plan-name">Premium</p>
-                                        </div>
+                                </div>
 
-                                        <div class="price-inner">
-                                            <p class="tp-price-desc">Ideal for growing businesses that need a comprehensive digital marketing strategy.</p>
-                                            <div class="price-btn-wrap">
-                                                <div class="tp-price-amount"><span>₹17,999</span></div>
-                                                <a href="#" class="actova-btn-primary">
-                                                    Join Premium Plan
-                                                    <svg width="9" height="13" viewBox="0 0 9 13"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M7.18965 4.93104C6.32449 4.93104 5.62069 5.63484 5.62069 6.5C5.62069 7.36516 6.32449 8.06896 7.18965 8.06896C8.05481 8.06896 8.75861 7.36516 8.75861 6.5C8.75861 5.63484 8.05481 4.93104 7.18965 4.93104ZM4.5 5.60346C5.36516 5.60346 6.06896 4.89965 6.06896 4.03449C6.06896 3.16933 5.36516 2.46553 4.5 2.46553C3.63484 2.46553 2.93103 3.16933 2.93103 4.03449C2.93103 4.89965 3.63484 5.60346 4.5 5.60346ZM1.81034 3.13793C2.6755 3.13793 3.3793 2.43412 3.3793 1.56896C3.3793 0.703803 2.6755 0 1.81034 0C0.945181 0 0.241379 0.703803 0.241379 1.56896C0.241379 2.43412 0.945181 3.13793 1.81034 3.13793ZM4.5 7.39654C3.63484 7.39654 2.93103 8.10035 2.93103 8.96551C2.93103 9.83067 3.63484 10.5345 4.5 10.5345C5.36516 10.5345 6.06896 9.83067 6.06896 8.96551C6.06896 8.10035 5.36516 7.39654 4.5 7.39654ZM1.81034 9.86207C0.945181 9.86207 0.241379 10.5659 0.241379 11.431C0.241379 12.2962 0.945181 13 1.81034 13C2.6755 13 3.3793 12.2962 3.3793 11.431C3.3793 10.5659 2.6755 9.86207 1.81034 9.86207Z">
-                                                        </path>
-                                                    </svg>
-                                                </a>
-                                            </div>
-                                            <div class="tp-price-feature">
-                                                <ul>
-                                                    <li>
-                                                        <span class="icon">
-                                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <mask id="mask0_1478_687" style="mask-type:alpha"
-                                                                    maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                    height="12">
-                                                                    <rect width="12" height="12" fill="#D9D9D9" />
-                                                                </mask>
-                                                                <g mask="url(#mask0_1478_687)">
-                                                                    <path
-                                                                        d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                        fill="#020202" />
-                                                                </g>
-                                                                                </span> Advanced SEO & Content Strategy
-                                                    </li>
-                                                    <li>
-                                                        <span class="icon">
-                                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <mask id="mask0_2478_637" style="mask-type:alpha"
-                                                                    maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                    height="12">
-                                                                    <rect width="12" height="12" fill="#D9D9D9" />
-                                                                </mask>
-                                                                <g mask="url(#mask0_2478_617)">
-                                                                    <path
-                                                                        d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                        fill="#020202" />
-                                                                </g>
-                                                            </svg>
-                                                        </span> 5 Paid Ad Campaigns
-                                                    </li>
-                                                    <li>
-                                                        <span class="icon">
-                                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <mask id="mask0_2478_607" style="mask-type:alpha"
-                                                                    maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                    height="12">
-                                                                    <rect width="12" height="12" fill="#D9D9D9" />
-                                                                </mask>
-                                                                <g mask="url(#mask0_2078_687)">
-                                                                    <path
-                                                                        d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                        fill="#020202" />
-                                                                </g>
-                                                            </svg>
-                                                        </span> CRM Integration & Lead Tracking
-                                                    </li>
-                                                    <li>
-                                                        <span class="icon">
-                                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <mask id="mask0_2478_2387" style="mask-type:alpha"
-                                                                    maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                    height="12">
-                                                                    <rect width="12" height="12" fill="#D9D9D9" />
-                                                                </mask>
-                                                                <g mask="url(#mask0_2478_2287)">
-                                                                    <path
-                                                                        d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                        fill="#020202" />
-                                                                </g>
-                                                            </svg>
-                                                        </span> Weekly Performance Reports
-                                                    </li>
-                                                    <li>
-                                                        <span class="icon">
-                                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                                xmlns="http://www.w3.org/2000/svg">
-                                                                <mask id="mask0_3478_687" style="mask-type:alpha"
-                                                                    maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                    height="12">
-                                                                    <rect width="12" height="12" fill="#D9D9D9" />
-                                                                </mask>
-                                                                <g mask="url(#mask0_4478_687)">
-                                                                    <path
-                                                                        d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                        fill="#020202" />
-                                                                </g>
-                                                            </svg>
-                                                        </span> Dedicated Support
-                                                    </li>                                       </li>
-                                                </ul>
-                                            </div>
+                                <!-- Growth Plan -->
+                                <div class="swiper-slide">
+                                    <div class="gx-price-card popular">
+                                        <div class="gx-popular-badge">Most Popular</div>
+                                        <div class="gx-price-header">
+                                            <h3 class="gx-plan-name">Growth Plan</h3>
+                                            <p class="gx-plan-desc">Ideal for businesses ready to scale and generate consistent high-quality leads.</p>
                                         </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                    <div class="tp-price-plan">
-                                        <div class="tp-price-header">
-                                            <p class="plan-name">Enterprise</p>
+                                        <div class="gx-price-value">
+                                            <span class="gx-currency">₹</span>
+                                            <span class="gx-amount">17,999</span>
+                                            <span class="gx-duration">/ month</span>
                                         </div>
-                                        <p class="tp-price-desc">Comprehensive 360° growth solutions and business automation for large organizations.</p>
-                                        <div class="price-btn-wrap">
-                                            <div class="tp-price-amount"><span>₹59,999</span></div>
-                                            <a href="#" class="actova-btn-light">
-                                                Join Enterprise Plan
-                                                <svg width="9" height="13" viewBox="0 0 9 13"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M7.18965 4.93104C6.32449 4.93104 5.62069 5.63484 5.62069 6.5C5.62069 7.36516 6.32449 8.06896 7.18965 8.06896C8.05481 8.06896 8.75861 7.36516 8.75861 6.5C8.75861 5.63484 8.05481 4.93104 7.18965 4.93104ZM4.5 5.60346C5.36516 5.60346 6.06896 4.89965 6.06896 4.03449C6.06896 3.16933 5.36516 2.46553 4.5 2.46553C3.63484 2.46553 2.93103 3.16933 2.93103 4.03449C2.93103 4.89965 3.63484 5.60346 4.5 5.60346ZM1.81034 3.13793C2.6755 3.13793 3.3793 2.43412 3.3793 1.56896C3.3793 0.703803 2.6755 0 1.81034 0C0.945181 0 0.241379 0.703803 0.241379 1.56896C0.241379 2.43412 0.945181 3.13793 1.81034 3.13793ZM4.5 7.39654C3.63484 7.39654 2.93103 8.10035 2.93103 8.96551C2.93103 9.83067 3.63484 10.5345 4.5 10.5345C5.36516 10.5345 6.06896 9.83067 6.06896 8.96551C6.06896 8.10035 5.36516 7.39654 4.5 7.39654ZM1.81034 9.86207C0.945181 9.86207 0.241379 10.5659 0.241379 11.431C0.241379 12.2962 0.945181 13 1.81034 13C2.6755 13 3.3793 12.2962 3.3793 11.431C3.3793 10.5659 2.6755 9.86207 1.81034 9.86207Z">
-                                                    </path>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        <div class="tp-price-feature">
+                                        <div class="gx-price-features">
                                             <ul>
-                                                <li>
-                                                    <span class="icon">
-                                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <mask id="mask0_2608_687" style="mask-type:alpha"
-                                                                maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                height="12">
-                                                                <rect width="12" height="12" fill="#D9D9D9" />
-                                                            </mask>
-                                                            <g mask="url(#mask0_2578_687)">
-                                                                <path
-                                                                    d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                    fill="#020202" />
-                                                            </g>
-                                                        </svg>
-                                                    </span> 360° Digital Marketing Strategy
-                                                </li>
-                                                <li>
-                                                    <span class="icon">
-                                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <mask id="mask0_2408_987" style="mask-type:alpha"
-                                                                maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                height="12">
-                                                                <rect width="12" height="12" fill="#D9D9D9" />
-                                                            </mask>
-                                                            <g mask="url(#mask0_2478_887)">
-                                                                <path
-                                                                    d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                    fill="#020202" />
-                                                            </g>
-                                                        </svg>
-                                                    </span> Custom ERP & Automation Solutions
-                                                </li>
-                                                <li>
-                                                    <span class="icon">
-                                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <mask id="mask0_24468_687" style="mask-type:alpha"
-                                                                maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                height="12">
-                                                                <rect width="12" height="12" fill="#D9D9D9" />
-                                                            </mask>
-                                                            <g mask="url(#mask0_2488_687)">
-                                                                <path
-                                                                    d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                    fill="#020202" />
-                                                            </g>
-                                                        </svg>
-                                                    </span> Dedicated Account Manager
-                                                </li>
-                                                <li>
-                                                    <span class="icon">
-                                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                                            xmlns="http://www.w3.org/2000/svg">
-                                                            <mask id="mask0_2378_687" style="mask-type:alpha"
-                                                                maskUnits="userSpaceOnUse" x="0" y="0" width="12"
-                                                                height="12">
-                                                                <rect width="12" height="12" fill="#D9D9D9" />
-                                                            </mask>
-                                                            <g mask="url(#mask0_2278_687)">
-                                                                <path
-                                                                    d="M9.39174 2.82232L4.54294 7.67106L2.32065 5.44872C1.98596 5.11403 1.44322 5.11397 1.10848 5.44866C0.773736 5.7834 0.773736 6.32609 1.10848 6.66083L3.93682 9.48929C4.09755 9.65004 4.31556 9.74036 4.54288 9.74037H4.54294C4.77025 9.74037 4.98825 9.65003 5.14899 9.48935L10.6039 4.03455C10.9386 3.6998 10.9386 3.15712 10.6039 2.82237C10.2692 2.48763 9.72648 2.48757 9.39174 2.82232Z"
-                                                                    fill="#020202" />
-                                                            </g>
-                                                        </svg>
-                                                    </span> 24/7 Priority Support
-                                                </li>
+                                                <li>Advanced On-page & Tech SEO</li>
+                                                <li>Social Media (12–15 Posts)</li>
+                                                <li>3 Paid Ad Campaigns</li>
+                                                <li>Landing Page Optimization</li>
+                                                <li>Lead Tracking (CRM)</li>
+                                                <li>Bi-weekly Strategy Reports</li>
                                             </ul>
                                         </div>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>
-                                </div>
-                                        <div class="swiper-pagination"></div>
+                                        <div class="gx-price-footer">
+                                            <a href="#" class="gx-btn-premium highlighted">Scale Faster</a>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <!-- Premium Plan -->
+                                <div class="swiper-slide">
+                                    <div class="gx-price-card">
+                                        <div class="gx-price-header">
+                                            <h3 class="gx-plan-name">Premium Plan</h3>
+                                            <p class="gx-plan-desc">Dominate your niche with aggressive growth and elite conversions.</p>
+                                        </div>
+                                        <div class="gx-price-value">
+                                            <span class="gx-currency">₹</span>
+                                            <span class="gx-amount">34,999</span>
+                                            <span class="gx-duration">/ month</span>
+                                        </div>
+                                        <div class="gx-price-features">
+                                            <ul>
+                                                <li>Full SEO & Content Strategy</li>
+                                                <li>Elite Social Media (20+ Creatives)</li>
+                                                <li>6 Multi-platform Ad Campaigns</li>
+                                                <li>Full Sales Funnel Automation</li>
+                                                <li>Advanced CRM Integration</li>
+                                                <li>VIP Weekly Strategy Calls</li>
+                                            </ul>
+                                        </div>
+                                        <div class="gx-price-footer">
+                                            <a href="#" class="gx-btn-premium">Select Premium</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Enterprise Plan -->
+                                <div class="swiper-slide">
+                                    <div class="gx-price-card">
+                                        <div class="gx-price-header">
+                                            <h3 class="gx-plan-name">Enterprise Plan</h3>
+                                            <p class="gx-plan-desc">360° digital transformation and automation for high-scale operations.</p>
+                                        </div>
+                                        <div class="gx-price-value" style="flex-direction: column; gap: 0;">
+                                            <span class="gx-amount" style="font-size: 34px; margin-bottom: 5px;">Custom Elite</span>
+                                            <span style="color: #D4AF37; font-size: 14px; font-weight: 700; text-transform: uppercase;">Starts at ₹59,999 / mo</span>
+                                        </div>
+                                        <div class="gx-price-features">
+                                            <ul>
+                                                <li>Full 360° Digital Infrastructure</li>
+                                                <li>Omnichannel Marketing Ops</li>
+                                                <li>AI Conversational Flows</li>
+                                                <li>Enterprise ERP Solutions</li>
+                                                <li>Dedicated VIP Account Manager</li>
+                                                <li>Priority 24/7 Optimization</li>
+                                            </ul>
+                                        </div>
+                                        <div class="gx-price-footer">
+                                            <a href="#" class="gx-btn-premium">Inquire Now</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination" style="bottom: -15px;"></div>
+                        </div>
+                        
+                        <!-- Navigation Arrows -->
+                        <div class="tp-price-navigation">
+                            <div class="tp-price-prev"><i class="fa-solid fa-arrow-left"></i></div>
+                            <div class="tp-price-next"><i class="fa-solid fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Add-Ons -->
+                    <div class="gx-addons-card">
+                        <div class="text-center mb-60">
+                            <h3 class="gx-addons-title">🔥 Gold Add-On Services</h3>
+                            <p style="color: #888; font-size: 18px;">Customize your success with specialized marketing modules</p>
+                        </div>
+                        <div class="gx-addons-grid">
+                            <div class="gx-addon-item">
+                                <span class="gx-addon-name">Website Design</span>
+                                <span class="gx-addon-price">₹8,000 – ₹25,000</span>
+                            </div>
+                            <div class="gx-addon-item">
+                                <span class="gx-addon-name">Landing Page Design</span>
+                                <span class="gx-addon-price">₹3,000 – ₹7,000</span>
+                            </div>
+                            <div class="gx-addon-item">
+                                <span class="gx-addon-name">Video Editing / Reels</span>
+                                <span class="gx-addon-price">₹2,000 – ₹10,000</span>
+                            </div>
+                            <div class="gx-addon-item">
+                                <span class="gx-addon-name">WhatsApp Automation</span>
+                                <span class="gx-addon-price">₹5,000 – ₹15,000</span>
+                            </div>
+                            <div class="gx-addon-item">
+                                <span class="gx-addon-name">SEO Blog Writing</span>
+                                <span class="gx-addon-price">₹500 – ₹1,500 <small style="font-size: 14px; color: #555;"> / article</small></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- Price end -->
 
 
             <!-- Integrations section -->
