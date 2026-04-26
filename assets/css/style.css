@@ -1,0 +1,526 @@
+#smooth-wrapper {
+    height: 100%;
+    overflow: hidden;
+}
+
+#smooth-content {
+    will-change: transform;
+}
+
+/* Global Audit & Repair Fixes */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    background-color: var(--black) !important;
+    color: var(--white-soft);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.sub-title {
+    color: var(--gold-primary) !important;
+}
+
+.title-wrap p {
+    color: var(--white-soft) !important;
+}
+
+/* Fix for mobile horizontal scroll */
+.tp-container, .container {
+    max-width: 100% !important;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Section Spacing & Backgrounds */
+.tp-chat-area, 
+.tp--marquee-text-style-2, 
+.tp-feature5-area,
+.tp-testimonial-area-5,
+.tp-price5-area,
+.tp-power-area {
+    background: var(--black) !important;
+    padding-top: 100px !important;
+    padding-bottom: 100px !important;
+}
+
+/* Specific Spacing Adjustments */
+.tp-chat-area {
+    padding-top: 150px !important;
+}
+
+.tp-chat-btn-wrap {
+    padding-top: 50px !important;
+}
+
+.tp--marquee-text-style-2 {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
+}
+
+.tp-feature5-top {
+    padding-top: 50px !important;
+    padding-bottom: 80px !important;
+}
+
+.tp-feature5-top p {
+    color: var(--gray-soft) !important;
+}
+
+/* Feature Item Styling */
+.tp-feature5-item {
+    background-image: none !important;
+    background: #050505 !important;
+    border: 1px solid var(--gold-dark) !important;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.05) !important;
+}
+
+.tp-feature5-item .title {
+    color: var(--gold-primary) !important;
+}
+
+.tp-feature5-item p {
+    color: var(--white-soft) !important;
+}
+
+/* Sticky Header Refine */
+.header-sticky {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button Hover Transitions */
+.tp-btn, .actova-btn, .tp-btn-primary, .actova-btn-secondary {
+    transition: all 0.3s ease-in-out !important;
+}
+
+/* Contact Section Spacing */
+.tp-contact-area {
+    padding-bottom: 120px;
+}
+
+.tp-map-area {
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+.tp-footer-area {
+    background: var(--black) !important; /* Ensure dark footer */
+}
+
+/* Fix for contact breadcrumb image contrast */
+.tp-breadcrumb-wrapper img {
+    filter: brightness(0.6);
+}
+
+
+/* Contact Page Premium Dark Theme Repairs */
+.tp-contact-page-form {
+    background: #050505 !important; /* Professional Dark Background */
+    border: 1px solid var(--gold-dark);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.tp-contact-page-form input, 
+.tp-contact-page-form select, 
+.tp-contact-page-form textarea {
+    background-color: #111 !important;
+    border: 1px solid #222 !important;
+    color: var(--white-soft) !important;
+    padding: 18px 25px !important;
+    transition: all 0.3s ease;
+}
+
+.tp-contact-page-form input:focus, 
+.tp-contact-page-form select:focus, 
+.tp-contact-page-form textarea:focus {
+    border-color: var(--gold-primary) !important;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+    outline: none;
+}
+
+.tp-contact-page-form input::placeholder, 
+.tp-contact-page-form textarea::placeholder {
+    color: #777 !important;
+}
+
+.tp-contact-page-form label {
+    color: #999;
+    font-size: 14px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.tp-contact-page-form label input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    padding: 0 !important;
+    accent-color: var(--gold-primary);
+}
+
+/* Responsive Form Fix */
+@media (max-width: 767px) {
+    .tp-contact-page-form .field-group {
+        flex-direction: column;
+    }
+    .tp-contact-page-form {
+        padding: 30px 20px !important;
+    }
+}
+
+/* Chat Area Animation & SVG Overrides */
+#move_anim path {
+    stroke: var(--gold-dark) !important;
+}
+
+#dotTop, #dotBottom {
+    fill: var(--gold-primary) !important;
+}
+
+/* Ensure all buttons have the premium gradient or gold color */
+.actova-btn-primary, .tp-btn-primary {
+    background: var(--gold-gradient) !important;
+    color: var(--black) !important;
+}
+
+.actova-btn-light, .tp-btn-light {
+    background: var(--gold-primary) !important;
+    color: var(--black) !important;
+}
+
+/* Premium Gold Tint for Icons */
+.tp-feature5-item-2 img,
+.tp-chat-item img,
+.chatgpt-btn img,
+.tp-feature5-item-2 .icon img {
+    filter: brightness(0) saturate(100%) invert(71%) sepia(30%) saturate(1142%) hue-rotate(3deg) brightness(94%) contrast(85%) !important;
+}
+
+.tp-testimonial-ratings .ratings p {
+    color: var(--white-soft) !important;
+}
+
+.tp-price-titlebox p {
+    color: var(--white-soft) !important;
+}
+
+.toggle-btn-wrap span {
+    color: var(--white-soft) !important;
+}
+
+.tp-price-header .plan-name {
+    color: var(--gold-primary) !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.tp-price-desc {
+    color: var(--white-soft) !important;
+}
+
+.tp-price-feature ul li {
+    color: var(--white-soft) !important;
+}
+
+.tp-price-feature ul li span.icon svg path {
+    fill: var(--gold-primary) !important;
+}
+
+/* Popular Plan (Premium) Text Color - Black for contrast */
+.tp-price-plan.popular .plan-name,
+.tp-price-plan.popular .tp-price-desc,
+.tp-price-plan.popular .tp-price-feature ul li,
+.tp-price-plan.popular .tp-price-amount,
+.tp-price-plan.popular .tp-price-amount span {
+    color: var(--black) !important;
+}
+
+.tp-price-plan.popular .tp-price-feature ul li span.icon svg path {
+    fill: var(--black) !important;
+}
+
+.tp-power-content p.text {
+    color: var(--gold-primary) !important;
+}
+
+.tp-power-content p {
+    color: var(--white-soft) !important;
+}
+
+.tp-feature5-item-2 p {
+    color: var(--gold-primary) !important;
+}
+
+.tp-feature5-item-2 .title {
+    color: var(--gold-primary) !important;
+}
+
+.chatgpt-btn {
+    color: var(--gold-primary) !important;
+}
+
+.tp-chat-item p {
+    color: var(--gold-primary) !important;
+}
+
+.tp-chat-item .content p, 
+.tp-chat-item .content .title {
+    color: var(--black) !important;
+}
+
+.tp-chat-item .content img {
+    filter: brightness(0) !important;
+}
+
+.tp-cta5-content h2,
+.tp-cta5-content ul li {
+    color: var(--black) !important;
+}
+
+.tp-cta5-content ul li span.icon i {
+    color: var(--black) !important;
+}
+
+.tp-service-step ul li a,
+.tp-service-step p,
+.tp-service-step p a {
+    color: var(--black) !important;
+}
+
+.tp-service-step ul li a {
+    background-color: var(--gold-primary) !important;
+    padding: 10px 25px !important;
+    border-radius: 50px !important;
+    display: inline-block !important;
+    font-weight: 600 !important;
+}
+
+/* Featured Service Card - Gold with Black Content */
+.tp-service-card-2.card-1 {
+    background-color: var(--gold-primary) !important;
+    background-image: none !important;
+    border: none !important;
+}
+
+.tp-service-card-2.card-1 .content .title a,
+.tp-service-card-2.card-1 .content p {
+    color: var(--black) !important;
+}
+
+.tp-service-card-2.card-1 .content img.icon {
+    filter: brightness(0) !important;
+}
+
+/* Premium 3-Column Horizontal Footer */
+.tp-footer-area-premium {
+    background-color: var(--black) !important;
+    padding: 60px 0 40px;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.tp-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.tp-footer-col {
+    flex: 1;
+}
+
+.tp-footer-col.left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.tp-footer-col.center {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.tp-footer-col.right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 40px;
+}
+
+.footer-links li a {
+    color: var(--white-soft);
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.footer-links li a:hover {
+    color: var(--gold-primary);
+}
+
+.footer-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--gold-primary);
+    transition: all 0.3s ease;
+}
+
+.footer-links li a:hover::after {
+    width: 100%;
+}
+
+.copyright-text {
+    color: var(--gray-soft);
+    font-size: 14px;
+    margin: 0;
+}
+
+.copyright-text span {
+    color: var(--gold-primary);
+    font-weight: 600;
+}
+
+.back-to-top-btn {
+    background: transparent;
+    border: none;
+    color: var(--white-soft);
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.back-to-top-btn .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.back-to-top-btn:hover {
+    color: var(--gold-primary);
+}
+
+.back-to-top-btn:hover .icon {
+    border-color: var(--gold-primary);
+    background-color: var(--gold-primary);
+    color: var(--black);
+    transform: translateY(-5px);
+}
+
+/* Responsive Footer */
+@media (max-width: 1199px) {
+    .footer-links {
+        gap: 25px;
+    }
+}
+
+@media (max-width: 991px) {
+    .tp-footer-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .tp-footer-col {
+        flex: none;
+        width: 100%;
+        justify-content: center !important;
+    }
+    
+    .tp-footer-col.center {
+        order: 3;
+    }
+    
+    .tp-footer-col.left {
+        order: 1;
+    }
+    
+    .tp-footer-col.right {
+        order: 2;
+    }
+}
+
+@media (max-width: 575px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.tp-how-work-step .title,
+.tp-how-work-step p {
+    color: var(--white-soft) !important;
+}
+
+.tp-how-work-step .step {
+    color: var(--gold-primary) !important;
+}
+
+.tp-contact-type .info p,
+.tp-contact-type .info a {
+    color: var(--white-soft) !important;
+}
+
+.tp-contact-type .icon i {
+    color: var(--gold-primary) !important;
+}
+
+.tp-contact-type .icon {
+    background-color: #050505 !important;
+    border: 1px solid var(--gold-dark) !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.tp-contact-type:hover .icon {
+    background-color: var(--gold-primary) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2) !important;
+}
+
+.tp-contact-type:hover .icon i {
+    color: var(--black) !important;
+}
+
+.tp-contact-location .info p,
+.tp-contact-location .info a,
+.tp-live-chat .info p,
+.tp-live-chat .info a {
+    color: var(--white-soft) !important;
+}
+
+.tp-contact-location .icon i,
+.tp-live-chat .icon svg path {
+    color: var(--gold-primary) !important;
+    fill: var(--gold-primary) !important;
+}
