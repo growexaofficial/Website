@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="assets/css/spacing.css">
     <link rel="stylesheet" href="assets/css/main-style.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 </head>
@@ -39,7 +40,7 @@
 
             <!-- Hero area start -->
             <section class="tp-hero5-area">
-                <div class="container">
+                <div class="tp-container">
                     <div class="tp-hero5-content">
                         <div class="subtitle"><span>New</span> We Don’t Just Market Brands — We Build Digital Authority</div>
                         <h1 class="title elastic-anim"> Growexa – 360° Digital <br> <span> Marketing </span> Solution </h1>
@@ -61,7 +62,78 @@
                         </ul>
                     </div>
                     <div class="hero5-img">
-                        <img src="assets/images/home-5/hero-bg.png" alt="Image">
+                        <div class="analytics-dashboard">
+                            <div class="dashboard-header">
+                                <div class="dashboard-info">
+                                    <h4>Analytics Overview</h4>
+                                    <p>Real-time performance metrics</p>
+                                </div>
+                                <div class="dashboard-actions">
+                                    <button class="dash-btn active">Live</button>
+                                    <button class="dash-btn">Stats</button>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-cards">
+                                <div class="stat-card">
+                                    <span class="label">Revenue</span>
+                                    <h3 class="value">₹128.5k</h3>
+                                    <span class="trend up">+14.2%</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="label">Active Users</span>
+                                    <h3 class="value">4,289</h3>
+                                    <span class="trend up">+8.1%</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="label">Conversion</span>
+                                    <h3 class="value">3.2%</h3>
+                                    <span class="trend down">-0.4%</span>
+                                </div>
+                                <div class="stat-card">
+                                    <span class="label">Growth Rate</span>
+                                    <h3 class="value">24.5%</h3>
+                                    <span class="trend up">+12.3%</span>
+                                </div>
+                            </div>
+
+                            <div class="charts-grid">
+                                <div class="chart-box main-chart">
+                                    <canvas id="analyticsChart"></canvas>
+                                </div>
+                                <div class="chart-box side-chart">
+                                    <canvas id="performanceChart"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-footer">
+                                <div class="activity-feed">
+                                    <div class="bar-header">
+                                        <span>Recent Activity</span>
+                                        <span class="view-all">View All</span>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-dot"></div>
+                                        <span>New lead from Mumbai</span>
+                                        <span class="time">2m ago</span>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-dot"></div>
+                                        <span>Ad campaign "Growth_v1" active</span>
+                                        <span class="time">15m ago</span>
+                                    </div>
+                                </div>
+                                <div class="mini-form-container">
+                                    <div class="bar-header">
+                                        <span>Quick Action</span>
+                                    </div>
+                                    <div class="mini-form">
+                                        <input type="text" placeholder="Quick Note...">
+                                        <button><i class="fa-solid fa-paper-plane"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="hero5-bg">
@@ -788,6 +860,136 @@
     <script src="vendor/vanilla-tilt/vanilla-tilt.min.js"></script>
     <script src="assets/js/actova-cursor.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chartElement = document.getElementById('analyticsChart');
+            if (!chartElement) return;
+
+            const ctx = chartElement.getContext('2d');
+            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, 'rgba(212, 175, 55, 0.4)');
+            gradient.addColorStop(1, 'rgba(212, 175, 55, 0)');
+
+            const analyticsChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Organic Reach',
+                        data: [45, 52, 48, 70, 65, 85, 92],
+                        borderColor: '#D4AF37',
+                        borderWidth: 4,
+                        tension: 0.4,
+                        fill: true,
+                        backgroundColor: gradient,
+                        pointBackgroundColor: '#D4AF37',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointHoverRadius: 7,
+                        pointRadius: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#111',
+                            titleColor: '#D4AF37',
+                            bodyColor: '#fff',
+                            borderColor: 'rgba(212, 175, 55, 0.3)',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)', drawBorder: false },
+                            ticks: { color: 'rgba(255, 255, 255, 0.4)', font: { size: 10 } }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: 'rgba(255, 255, 255, 0.4)', font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+
+            // Performance Bar Chart
+            const pCtx = document.getElementById('performanceChart').getContext('2d');
+            new Chart(pCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                    datasets: [{
+                        label: 'Performance',
+                        data: [65, 78, 90, 85, 92, 88, 95],
+                        backgroundColor: '#D4AF37',
+                        borderRadius: 5,
+                        barThickness: 12
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)', drawBorder: false },
+                            ticks: { display: false }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: 'rgba(255, 255, 255, 0.4)', font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+
+            // Tab switching demo
+            const dashButtons = document.querySelectorAll('.dash-btn');
+            dashButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    dashButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Simulate data update
+                    const newData = Array.from({length: 7}, () => Math.floor(Math.random() * 50) + 40);
+                    analyticsChart.data.datasets[0].data = newData;
+                    analyticsChart.update();
+                });
+            });
+
+            // Form interaction
+            const miniForm = document.querySelector('.mini-form button');
+            if (miniForm) {
+                miniForm.addEventListener('click', function() {
+                    const input = this.parentElement.querySelector('input');
+                    if (input.value.trim() !== "") {
+                        this.innerHTML = '<i class="fa-solid fa-check"></i>';
+                        this.style.background = '#4ade80';
+                        setTimeout(() => {
+                            this.innerHTML = '<i class="fa-solid fa-paper-plane"></i>';
+                            this.style.background = '#D4AF37';
+                            input.value = "";
+                        }, 2000);
+                    }
+                });
+            }
+
+            // Refresh ScrollTrigger after a short delay to account for dashboard height
+            setTimeout(() => {
+                if (typeof ScrollTrigger !== 'undefined') {
+                    ScrollTrigger.refresh();
+                }
+            }, 500);
+        });
+    </script>
 
     <script>
         $(window).on('load', function() {
