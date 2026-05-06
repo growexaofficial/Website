@@ -1,10 +1,14 @@
 #smooth-wrapper {
-    height: 100%;
-    overflow: hidden;
+    height: auto;
+    overflow: hidden; /* Changed back to hidden for ScrollSmoother compatibility */
+    min-height: 100vh;
 }
 
 #smooth-content {
     will-change: transform;
+    min-height: 100.1vh;
+    overflow: visible !important;
+    padding-bottom: 250px !important; /* Massive buffer to ensure footer visibility */
 }
 
 /* Global Audit & Repair Fixes */
@@ -318,11 +322,18 @@ body {
     filter: brightness(0) !important;
 }
 
-/* Premium 3-Column Horizontal Footer */
+.tp-footer-wrapper-final {
+    position: relative;
+    width: 100%;
+    background-color: var(--black);
+    padding-bottom: 20px; /* Extra bottom buffer for scroll-smoother */
+}
+
+/* Minimalist Premium Footer (Image-inspired) */
 .tp-footer-area-premium {
     background-color: var(--black) !important;
-    padding: 60px 0 40px;
-    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     position: relative;
     z-index: 10;
 }
@@ -332,26 +343,24 @@ body {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
 }
 
 .tp-footer-col {
-    flex: 1;
+    display: flex;
+    align-items: center;
 }
 
 .tp-footer-col.left {
-    display: flex;
     justify-content: flex-start;
 }
 
 .tp-footer-col.center {
-    display: flex;
     justify-content: center;
-    text-align: center;
+    flex: 1;
 }
 
 .tp-footer-col.right {
-    display: flex;
     justify-content: flex-end;
 }
 
@@ -360,82 +369,79 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 40px;
+    gap: 25px;
 }
 
 .footer-links li a {
-    color: var(--white-soft);
-    font-size: 16px;
+    color: #ffffff;
+    font-size: 14px;
     font-weight: 500;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    position: relative;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: opacity 0.3s ease;
 }
 
 .footer-links li a:hover {
-    color: var(--gold-primary);
-}
-
-.footer-links li a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background-color: var(--gold-primary);
-    transition: all 0.3s ease;
-}
-
-.footer-links li a:hover::after {
-    width: 100%;
+    opacity: 0.7;
 }
 
 .copyright-text {
-    color: var(--gray-soft);
-    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
     margin: 0;
-}
-
-.copyright-text span {
-    color: var(--gold-primary);
-    font-weight: 600;
+    font-family: var(--font-mono);
 }
 
 .back-to-top-btn {
     background: transparent;
     border: none;
-    color: var(--white-soft);
-    font-size: 16px;
+    color: #ffffff;
+    font-size: 14px;
     font-weight: 500;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease;
     padding: 0;
 }
 
-.back-to-top-btn .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
 .back-to-top-btn:hover {
-    color: var(--gold-primary);
+    opacity: 0.7;
 }
 
-.back-to-top-btn:hover .icon {
-    border-color: var(--gold-primary);
-    background-color: var(--gold-primary);
-    color: var(--black);
-    transform: translateY(-5px);
+.back-to-top-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.back-to-top-btn:hover svg {
+    transform: translateY(-3px);
+}
+
+/* Ensure footer text is always visible */
+.tp-footer-area-premium p, 
+.tp-footer-area-premium a, 
+.tp-footer-area-premium span,
+.tp-footer-area-premium li {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+@media (max-width: 991px) {
+    .tp-footer-row {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    .tp-footer-col {
+        justify-content: center !important;
+        width: 100%;
+    }
+    .footer-links {
+        justify-content: center;
+        gap: 20px;
+        flex-direction: row !important; /* Force horizontal row on mobile */
+    }
 }
 
 /* Responsive Footer */

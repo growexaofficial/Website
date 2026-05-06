@@ -172,23 +172,42 @@
             </section>
             <!-- Contact end -->
 
-
-            <!-- Map start -->
-            <div class="tp-map-area">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121073.91939539705!2d73.8746239!3d18.5035801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1777024196615!5m2!1sen!2sin" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <!-- Map end -->
-
-
-            <!-- Footer placeholder -->
-            <div id="footer-placeholder"></div>
+            <!-- Footer area start -->
+            <footer class="tp-footer-area-premium" style="display: block !important; visibility: visible !important; position: relative; z-index: 100; background-color: #000 !important; color: #fff !important;">
+                <div class="container">
+                    <div class="tp-footer-row" style="color: #fff !important;">
+                        <!-- Left: Links -->
+                        <div class="tp-footer-col left">
+                            <ul class="footer-links">
+                                <li><a href="index.html" style="color: #fff !important;">Home</a></li>
+                                <li><a href="service.html" style="color: #fff !important;">Services</a></li>
+                                <li><a href="contact.html" style="color: #fff !important;">Contact</a></li>
+                            </ul>
+                        </div>
+                        <!-- Center: Copyright -->
+                        <div class="tp-footer-col center">
+                             <p class="copyright-text" style="color: #fff !important;">© 2026 Growexa. All Rights Reserved.</p>
+                        </div>
+                        <!-- Right: Back to top -->
+                        <div class="tp-footer-col right">
+                            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="back-to-top-btn" style="color: #fff !important;">
+                                Back to top 
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 1V11M6 1L1 6M6 1L11 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer area end -->
         </div>
     </div>
 
     <!-- All JS Files -->
     <script src="vendor/jquery/jquery-3.7.1.min.js"></script>
     <script src="assets/js/header-loader.js"></script>
-    <script src="assets/js/footer-loader.js"></script>
+
     <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="vendor/meanmenu/jquery.meanmenu.min.js"></script>
     <script src="vendor/swiper/swiper-bundle.min.js"></script>
@@ -199,10 +218,33 @@
     <script src="vendor/gsap/ScrollTrigger.min.js"></script>
     <script src="vendor/gsap/ScrambleTextPlugin.min.js"></script>
     <script src="vendor/gsap/SplitText.min.js"></script>
+    <script src="vendor/gsap/MotionPathPlugin.min.js"></script>
     <script src="vendor/vanilla-tilt/vanilla-tilt.min.js"></script>
     <script src="assets/js/actova-cursor.js"></script>
     <script src="assets/js/main.js"></script>
 
+    <script>
+        $(window).on('load', function() {
+            // Wait for all content and animations to settle
+            setTimeout(function() {
+                if (typeof ScrollTrigger !== 'undefined') {
+                    ScrollTrigger.refresh();
+                }
+                // Force recalculate height multiple times to ensure stability
+                const forceRefresh = () => {
+                    if (document.getElementById('smooth-content')) {
+                        document.getElementById('smooth-content').style.height = 'auto';
+                        ScrollTrigger.refresh();
+                    }
+                };
+                forceRefresh();
+                setTimeout(forceRefresh, 500);
+                setTimeout(forceRefresh, 1500);
+            }, 1000);
+        });
+    </script>
+
+    <!-- Footer area end -->
 </body>
 
 </html>

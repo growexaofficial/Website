@@ -31,9 +31,6 @@
 <body>
 
 
-
-
-
     <!-- header placeholder -->
     <div id="header-placeholder"></div>
 
@@ -300,7 +297,7 @@
 
 
             <!-- Testimonial area start -->
-            <section class="tp-testimonial-area-3 esf tp-testimonial-area-5 pb-100" style="margin-top: 100px;">
+            <section class="tp-testimonial-area-3 esf tp-testimonial-area-5 pb-100" style="margin-top: 100px;" id="works">
                 <div class="tp-testimonial-inner-3">
                     <div class="title-wrap">
                         <h2 class="sub-title-3"><span>Growexa</span> Success Stories</h2>
@@ -966,15 +963,42 @@
             </section>
             <!-- FAQ area end -->
 
-            <!-- Footer placeholder -->
-            <div id="footer-placeholder"></div>
+            <!-- Footer area start -->
+            <footer class="tp-footer-area-premium">
+                <div class="container">
+                    <div class="tp-footer-row">
+                        <!-- Left: Links -->
+                        <div class="tp-footer-col left">
+                            <ul class="footer-links">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="service.html">Services</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <!-- Center: Copyright -->
+                        <div class="tp-footer-col center">
+                             <p class="copyright-text">© 2026 Growexa. All Rights Reserved.</p>
+                        </div>
+                        <!-- Right: Back to top -->
+                        <div class="tp-footer-col right">
+                            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="back-to-top-btn">
+                                Back to top 
+                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 1V11M6 1L1 6M6 1L11 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer area end -->
         </div>
     </div>
 
     <!-- All JS Files -->
     <script src="vendor/jquery/jquery-3.7.1.min.js"></script>
     <script src="assets/js/header-loader.js"></script>
-    <script src="assets/js/footer-loader.js"></script>
+
     <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="vendor/meanmenu/jquery.meanmenu.min.js"></script>
     <script src="vendor/swiper/swiper-bundle.min.js"></script>
@@ -990,6 +1014,20 @@
     <script src="assets/js/actova-cursor.js"></script>
     <script src="assets/js/main.js"></script>
 
+    <script>
+        $(window).on('load', function() {
+            // Wait for all content and animations to settle
+            setTimeout(function() {
+                if (typeof ScrollTrigger !== 'undefined') {
+                    ScrollTrigger.refresh();
+                }
+                // Force recalculate height
+                if (document.getElementById('smooth-content')) {
+                    document.getElementById('smooth-content').style.height = 'auto';
+                }
+            }, 1000);
+        });
+    </script>
 </body>
 
 </html>
